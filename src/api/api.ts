@@ -1,8 +1,7 @@
 import axios from "axios"
 
-export const api = () => {
-    return axios.create({
-        baseURL: 'http://backend.com/api/',
-        timeout: 1000,
-    })
-}
+const API_URL = process.env.API_URL;
+
+export const api = axios.create({
+    baseURL: API_URL
+})

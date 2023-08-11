@@ -1,0 +1,9 @@
+{
+    "orders": [
+      {"id":"orderId","externalId":"orderExternalId","externalOrderNumber":"20","orderNumber":"10","status":"orderStatus","userId":"userId","externalUserId":"userExternalId","userName":"userName","itens":[{"id":"itemId","externalId":"itemExternalId","description":"itemDescription","value":10,"amount":10,"images":[{"id":"imageId","externalId":"imageExternalId","url":"imageURL","description":"imageDescription"}]}],"orderTotalValue":100,"payment":{"id":"paymentId","externalId":"paymentExternalId"}}
+    ],
+    
+    "order-itens": [{"id":"itemId","externalId":"itemExternalId","description":"itemDescription","value":10,"amount":10,"images":[{"id":"imageId","externalId":"imageExternalId","url":"imageURL","description":"imageDescription"}]}],
+
+    "item-images": [{"id":"imageId","externalId":"imageExternalId","url":"imageURL","description":"imageDescription"}]
+  }

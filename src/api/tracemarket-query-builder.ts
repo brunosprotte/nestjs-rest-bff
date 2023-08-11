@@ -19,7 +19,7 @@ class Where {
     value: string;
 }
 
-export class TracemarketApi {
+export class TracemarketQueryBuilder {
     private select: string[];
     private where: Where[];
     private pagination: Pagination;
@@ -60,7 +60,7 @@ export class TracemarketApi {
     }
 
     async doGet(resource: string) {
-        return await api().get(resource, {
+        return await api.get(resource, {
             params: this.buildQuery()
         })
     }

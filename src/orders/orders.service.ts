@@ -17,8 +17,9 @@ export class OrdersService {
     return this.orderClient.getOrders(query);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} order`;
+  findOne(id: string) {
+    console.log("service ", id)
+    return this.orderClient.getOrderById(id);
   }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {

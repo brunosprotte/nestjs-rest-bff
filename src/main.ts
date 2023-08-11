@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 
@@ -6,7 +7,6 @@ import SchemaValidationFilter from './validation/filters/schema/schema-validaton
 import AnyExceptionFilter from './validation/filters/server-error/any-exception.filters';
 import schemaValidationErrorMapper from './validation/model/schema-validation-error.mapper';
 import { AppModule } from './app.module';
-
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 

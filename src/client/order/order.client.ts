@@ -1,12 +1,26 @@
 import { Injectable } from '@nestjs/common';
-import { TracemarketApi } from '../../api/tracemarket-api';
+import { TracemarketQueryBuilder } from '../../api/tracemarket-query-builder';
 import { FilterDTO } from '../../dto/query.dto';
+import { api } from '../../api/api';
 
 @Injectable()
 export class OrderClient {
 
+    async getOrderById(orderId: string) {
+        try {
+            console.log('getOrderById - ', orderId)
+
+            console.log(api.getUri())
+
+            const {data} = await api.get(`/orders/${orderId}`)
+            return data
+        } catch(e) {
+            throw new Error(e)
+        }
+    }
+
     async getOrders(query: FilterDTO) {
-        const api = new TracemarketApi()
+        const api = new TracemarketQueryBuilder()
         // return await api.selectAllField(query.query.select)
         //     .addAllWhere(query.query.where)
         //     .withPagination(query.query.pagination)
@@ -41,6 +55,8 @@ export class OrderClient {
             }
         }
     }
+
+
     
 
 
