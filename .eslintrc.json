@@ -1,0 +1,42 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "tsconfig.json",
+        "sourceType": "module"
+    },
+    "plugins": ["prettier"],
+    "extends": ["airbnb-typescript/base", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+    "root": true,
+    "env": {
+        "node": true,
+        "jest": true
+    },
+    "ignorePatterns": [".eslintrc.js"],
+    "rules": {
+        "prettier/prettier": "error",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "import/extensions": "off",
+        "no-use-before-define": "off",
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-console": "error",
+        "prefer-const": "error",
+        "prefer-spread": "error",
+        "object-curly-spacing": [1, "always"],
+        "comma-style": ["error", "last"],
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "ignoreComments": true,
+                "ignoreStrings": true,
+                "ignoreUrls": true,
+                "ignorePattern": "d=\"([\\s\\S]*?)\""
+            }
+        ]
+    }
+}
