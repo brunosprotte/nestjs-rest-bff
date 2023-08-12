@@ -6,7 +6,7 @@ import { api } from '../../api/api';
 @Injectable()
 export class OrderClient {
 
-    async getOrderById(orderId: string) {
+    async getById(orderId: string) {
         try {
             console.log('getOrderById - ', orderId)
 

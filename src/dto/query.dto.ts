@@ -45,7 +45,8 @@ class Pagination {
 export class FilterDTO {
   @IsNotEmpty()
   @IsString({ each: true })
-  select: string[];
+  @IsOptional()
+  select?: string[];
 
   // @IsArray()
   // @IsObject({ each: true })

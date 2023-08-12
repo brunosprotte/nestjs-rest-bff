@@ -56,7 +56,10 @@ export class TracemarketQueryBuilder {
     }
 
     buildQuery() {
-        return JSON.stringify({select: this.select, where: this.where, pagination: this.pagination})
+        const select = this.select.length > 0 ? this.select : '';
+        const where = this.where.length > 0 ? this.where : '';
+
+        return JSON.stringify({select, where, pagination: this.pagination})
     }
 
     async doGet(resource: string) {

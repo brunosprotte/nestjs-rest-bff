@@ -10,7 +10,7 @@ import schemaValidationErrorMapper from '../../src/validation/model/schema-valid
 import { ComparisonOperator } from '../../src/dto/query.dto';
 import { TracemarketQueryBuilder } from '../../src/api/tracemarket-query-builder';
 
-const complete_order = {
+const complete_order_lazy = {
         id: 'orderId',
         externalId: 'orderExternalId',
         externalOrderNumber: '20',
@@ -21,21 +21,13 @@ const complete_order = {
         userName: 'userName',
         itens: [{
             id: 'itemId',
-            externalId: 'itemExternalId',
-            description: 'itemDescription',
-            value: 10,
-            amount: 10,
             images: [{
                 id: 'imageId',
-                externalId: 'imageExternalId',
-                url: 'imageURL',
-                description: 'imageDescription',
             }]
         },],
         orderTotalValue: 100,
         payment: {
             id: 'paymentId',
-            externalId: 'paymentExternalId',
         }
 }
 
@@ -68,14 +60,28 @@ describe('Orders (e2e)', () => {
     });
 
     it('GET - /orders/:id ', async () => {
-
-        const expected = JSON.stringify(complete_order);
+        const expected = JSON.stringify(complete_order_lazy);
 
         return request(app.getHttpServer())
             .get('/orders/orderId')
             .expect(200)
             .expect(expected);
     });
+
+    // it('GET - orders by userId ', async () => {
+    //     const expected = JSON.stringify(complete_order_lazy);
+        
+    //     const api = new TracemarketQueryBuilder();
+    //     const query = api
+    //         .withWhere({field:'userId', operation: ComparisonOperator.EQ, value: 'userId'})
+    //         .withPagination({sortBy: ['orderTotalValue', 'status'], order: 'asc', page: 1, pageSize: 10})
+    //         .buildQuery()        
+
+    //     return request(app.getHttpServer())
+    //         .get('/orders/orderId')
+    //         .expect(200)
+    //         .expect(expected);
+    // });
 
     it('GET - findAll ', () => {
 
